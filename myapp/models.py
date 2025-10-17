@@ -13,3 +13,12 @@ class Book(models.Model):
     # one to many 
     author=models.ForeignKey(User, on_delete=models.CASCADE)
     title=models.CharField(max_length=100)
+
+class Course(models.Model):
+    course=models.CharField(max_length=100)
+    price = models.IntegerField()
+    
+class Student(models.Model):
+    name=models.CharField(max_length=100)
+    courses=models.ManyToManyField('Course')
+
