@@ -8,3 +8,8 @@ class User(models.Model):
 class Profile(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
     bio=models.TextField()
+
+class Book(models.Model):
+    # one to many 
+    author=models.ForeignKey(User, on_delete=models.CASCADE)
+    title=models.CharField(max_length=100)
